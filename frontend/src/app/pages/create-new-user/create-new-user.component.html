@@ -1,0 +1,60 @@
+<!-- <p>{{ states$ | async | json }}<p> -->
+
+<div class="top-div">
+    <!-- Splash Screen -->
+    <!-- <div id="splash-screen">
+        <div class="splash-content">
+            <img src="logo.png" alt="Budget Buddy Logo">
+            <h1>Budget Buddy</h1>
+        </div>
+    </div> -->
+
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen">
+        @if(this.userService.isUserEdit){
+            <h2>Edit User</h2>
+        }@else {
+            <h2>Create New User</h2>
+        }
+        <form id="login-form" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+            <input type="text" name="username" id="username" placeholder="Username" required [(ngModel)]="userForm.username" >
+            <input type="email" name="email" id="email" placeholder="Email" required [(ngModel)]="userForm.email" >
+            <input type="password" name="password" id="password" placeholder="Password" required [(ngModel)]="userForm.password" >
+            @if(loggedInUserRole === 'admin'){
+                <div class="float-start d-flex w-100%">
+                    <input type="checkbox" class [(ngModel)]="isAdmin" name="isAdmin" >
+                    <label for="">Promote as admin</label>
+                </div>
+            }
+            <div >
+            
+                <img 
+                  [src]="imagePreview || userForm.profileImage || '/blank-profile-picture-973460_1280.webp'" 
+                  alt="Profile Image" 
+                  height="100" 
+                  width="100" 
+                  class="profile-image">
+
+                <input 
+                  type="file" 
+                  name="profile-image" 
+                  id="profile" 
+                  placeholder="your profile picture" 
+                  (change)="imageSelected($event)" 
+                  accept="image/*">
+
+            </div>
+
+            <button type="button" (click)="onSubmit()" >
+                @if(this.userService.isUserEdit){
+                    Edit
+                }@else {
+                    Register
+                }
+            </button>
+            <!-- <p>Already have an account? <a href="#" id="login-link" routerLink="/login">Login</a></p> -->
+        </form>
+    </div>
+
+</div>

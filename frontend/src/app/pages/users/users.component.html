@@ -1,0 +1,63 @@
+<!-- <p>users works!</p> -->
+<div class="m-5">
+  <div class="container-fluid">
+
+    <div class="row container-fluid">
+        <div class="my-2">
+          <!-- <div *ngIf="(loading$ | async)" class="loading">
+            Loading users...
+          </div>
+          
+          <div *ngIf="(error$ | async) as error" class="error">
+            {{ error }}
+          </div> -->
+          <button type="button" class="btn btn-success float-end" routerLink="/admin/create-new-user">Create New User</button>
+      </div>
+        <div class="col-12">
+            <div class="card bg-primary p-2 text-white rounded-0">
+                <h2>Users List</h2>
+            </div>
+          
+            <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <!-- <th>id</th> -->
+                    <th>profile</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                  @for (user of users$ | async ; track $index) {
+                  
+                    <tr>
+                      <th>{{ $index }}</th>
+                      <!-- <td>{{ user._id }}</td> -->
+                      <td style="text-align: center;"><img [src]="user.profileImage || '/blank-profile-picture-973460_1280.webp'" alt="user profile picture" height="50px" width="50px" class="profile-picture"></td>
+                      <td>{{ user.username }}</td>
+                      <td>{{ user.email }}</td>
+                      <td>{{ user.password }}</td>
+                      <td>
+                        <button type="button" class="btn btn-success mx-2" (click)="switchRole(user._id, user.role)">Switch</button>
+                        <span>{{ user.role }}</span>
+                      </td>
+                      <td >
+                        <button class="btn btn-warning m-1" type="button" (click)="onEditUser(user)">Edit</button>
+                        <button class="btn btn-danger m-1" (click)="onDelete(user._id)">Delete</button>
+                      </td>
+                    </tr>
+                  
+                  }
+                 
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    </div>
+  </div>

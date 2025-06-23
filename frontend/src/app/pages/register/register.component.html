@@ -1,0 +1,25 @@
+
+<div class="top-div">
+    <!-- Splash Screen -->
+    <!-- <div id="splash-screen">
+        <div class="splash-content">
+            <img src="logo.png" alt="Budget Buddy Logo">
+            <h1>Budget Buddy</h1>
+        </div>
+    </div> -->
+
+    <!-- Register Screen -->
+    <div id="login-screen" class="screen">
+        <h2>Register</h2>
+        <form id="login-form" (ngSubmit)="onRegister()" enctype="multipart/form-data">
+            <input type="text" name="username" id="username" placeholder="Username" required [(ngModel)]="registerForm.username" >
+            <input type="email" name="email" id="email" placeholder="Email" required [(ngModel)]="registerForm.email" >
+            <input type="password" name="password" id="password" placeholder="Password" required [(ngModel)]="registerForm.password" >
+            <input type="file" name="profile-image" id="profile" placeholder="your profile picture" (change)="imageSelected($event)" accept="image/*">
+            <!-- <img [src]='' alt=""> -->
+            <button type="button" (click)="onRegister()" >Register</button>
+            <p>Already have an account? <a href="#" id="login-link" routerLink="/login">Login</a></p>
+        </form>
+    </div>
+
+</div>

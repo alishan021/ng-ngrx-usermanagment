@@ -1,0 +1,29 @@
+
+<div class="top-div">
+    <!-- Splash Screen -->
+    <!-- <div id="splash-screen">
+        <div class="splash-content">
+            <img src="logo.png" alt="Budget Buddy Logo">
+            <h1>Budget Buddy</h1>
+        </div>
+    </div> -->
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen">
+        <h2>Login</h2>
+        <form id="login-form">
+            
+            <input type="text" name="email" id="username"
+                placeholder="Username" 
+                required [(ngModel)]="loginForm.email" >
+
+            <input type="password" name="password" id="password" 
+                placeholder="Password" 
+                required [(ngModel)]="loginForm.password" >
+
+            <button type="button" (click)="onLogin()" >Login</button>
+            <p>Don't have an account? <a id="signup-link" routerLink="/register">Sign Up</a></p>
+        </form>
+    </div>
+
+   </div>

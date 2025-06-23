@@ -1,0 +1,30 @@
+
+
+<div class="div1">
+<div class="container d-flex justify-content-center">
+    <div class="card p-3 py-4">
+        <div class="text-center"> 
+		<img src="" width="100" class="rounded-circle">
+            <h3 class="mt-2">{{ userInfo.username }}</h3>
+            <h5 class="mt-2">{{ userInfo.email }}</h5>
+            <br>
+            <div>
+                <img [src]="userInfo.profileImage || '/blank-profile-picture-973460_1280.webp'" alt="profile Image" height="100px" width="100px" class="profile-image">
+            </div>
+			
+			 <div class="profile mt-5">
+
+			<hr class="line">
+			
+			 <div class="profile mt-5">
+			 
+			 <button class="profile_button px-5" (click)="onEdit()">Edit Profile</button>
+             <br><br>
+			 <button class="logout_button px-5" (click)="onLogout()">Logout</button>
+
+		</div>
+			   
+        </div>
+    </div>
+</div>
+</div>
